@@ -2,7 +2,7 @@
     'name': 'Barangay Management Information System',
     'version': '2.0.0',
     'category': 'Government',
-    'Author': 'AMB BS',
+    'author': 'AMB BS',
     'summary': 'Manage Barangay Residents and Services',
     'description': """
         Barangay Management Information System
