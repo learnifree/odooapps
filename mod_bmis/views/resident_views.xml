@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_resident_tree" model="ir.ui.view">
+        <field name="name">bmis.resident.tree</field>
+        <field name="model">bmis.resident</field>
+        <field name="arch" type="xml">
+            <tree string="Residents">
+                <field name="resident_seq"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="civil_status"/>
+                <field name="address"/>
+                <field name="mobile"/>
+                <field name="resident_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_resident_form" model="ir.ui.view">
+        <field name="name">bmis.resident.form</field>
+        <field name="model">bmis.resident</field>
+        <field name="arch" type="xml">
+            <form string="Resident">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="resident_seq" class="oe_inline" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="name" placeholder="Full Name"/>
+                        </h2>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group string="Personal Information">
+                            <field name="first_name"/>
+                            <field name="middle_name"/>
+                            <field name="last_name"/>
+                            <field name="suffix"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="civil_status"/>
+                            <field name="nationality"/>
+                            <field name="religion"/>
+                            <field name="blood_type"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="mobile"/>
+                            <field name="telephone"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                            <field name="street"/>
+                            <field name="barangay"/>
+                            <field name="city"/>
+                            <field name="province"/>
+                            <field name="postal_code"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Education and Occupation">
+                            <group>
+                                <field name="educational_attainment"/>
+                                <field name="occupation"/>
+                                <field name="monthly_income"/>
+                                <field name="skills"/>
+                            </group>
+                        </page>
+                        <page string="Residency Information">
+                            <group>
+                                <field name="resident_type"/>
+                                <field name="years_of_residency"/>
+                                <field name="is_voter"/>
+                                <field name="is_head_of_family"/>
+                                <field name="registration_date"/>
+                            </group>
+                        </page>
+                        <page string="Family Information">
+                            <group>
+                                <field name="father_name"/>
+                                <field name="mother_name"/>
+                                <field name="spouse_name"/>
+                                <field name="number_of_children"/>
+                            </group>
+                            <field name="family_member_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="relationship"/>
+                                    <field name="birth_date"/>
+                                    <field name="occupation"/>
+                                    <field name="remarks"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_resident_search" model="ir.ui.view">
+        <field name="name">bmis.resident.search</field>
+        <field name="model">bmis.resident</field>
+        <field name="arch" type="xml">
+            <search string="Residents">
+                <field name="name"/>
+                <field name="address"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <separator/>
+                <filter string="Voters" name="voters" domain="[('is_voter', '=', True)]"/>
+                <filter string="Head of Family" name="head_of_family" domain="[('is_head_of_family', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Civil Status" name="civil_status" context="{'group_by': 'civil_status'}"/>
+                    <filter string="Resident Type" name="resident_type" context="{'group_by': 'resident_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_resident" model="ir.actions.act_window">
+        <field name="name">Residents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bmis.resident</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_resident_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first resident!
+            </p>
+        </field>
+    </record>
+</odoo>

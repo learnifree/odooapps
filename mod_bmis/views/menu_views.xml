@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_bmis_root"
+              name="Barangay MIS"
+              sequence="10"/>
+
+    <!-- Residents Menu -->
+    <menuitem id="menu_bmis_resident"
+              name="Residents"
+              parent="menu_bmis_root"
+              action="action_resident"
+              sequence="10"/>
+</odoo>

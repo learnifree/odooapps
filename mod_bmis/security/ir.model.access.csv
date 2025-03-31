@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bmis_resident,access.bmis.resident,model_bmis_resident,base.group_user,1,1,1,1
+access_bmis_family_member,access.bmis.family.member,model_bmis_family_member,base.group_user,1,1,1,1
