@@ -4,11 +4,7 @@
     'category': 'Government',
     'author': 'AMB BS',
     'summary': 'Manage Barangay Residents and Services',
-    'description': """
-        Barangay Management Information System
-        ====================================
-        This module helps manage barangay residents and services.
-    """,
+    'description': """Helps manage barangay residents profile""",
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
