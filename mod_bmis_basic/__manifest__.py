@@ -1,10 +1,10 @@
 {
-    'name': 'Barangay Management Information System',
+    'name': 'Barangay Management Information System (Basic)',
     'version': '2.0.0',
     'category': 'Government',
     'author': 'AMB BS',
     'summary': 'Manage Barangay Residents and Services',
-    'description': """Helps manage barangay residents profile""",
+    'description': """Helps manage barangay basic residents profile""",
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
